@@ -1,0 +1,10 @@
+#!/bin/bash
+echo -n  "provide the username: "
+read newusers
+useradd $newusers
+echo " "
+echo "user $newusers has benn created"
+echo "$newusers        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/mysudoers
+echo " "
+echo "Here are your sudo users"
+cat /etc/sudoers.d/mysudoers
