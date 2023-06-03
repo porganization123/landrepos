@@ -14,3 +14,5 @@ cat $filename
 echo " showing the content of the file in g11backup"
 cat ../g11backup/$filename
 
+# I really like this script
+# I've just added another line to my script
