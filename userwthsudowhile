@@ -2,15 +2,15 @@
 response=n
 while true;
 do
-	echo -n  "provide the username: "
-        read newusers
-        useradd $newusers
-        echo " "
+	echo -n  "provide the username: "   #get user nput
+        read newusers                       # store the input
+	useradd $newusers                   # create a user from the input
+        echo " "                            # create an empty line
         echo "user $newusers has been created with sudo power"
-        echo "$newusers        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/mysudoers
+        echo "$newusers        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/mysudoers   #add the user to the sudoers
         echo " "
         #echo "Here are your sudo users"
-        # cat /etc/sudoers.d/mysudoers
+        # cat /etc/sudoers.d/mysudoers          #list users with sudo power
 	echo -n "more user(y/n): "
 	read response
 	if [[ $response == "n" ]];
