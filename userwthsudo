@@ -1,10 +1,10 @@
 #!/bin/bash
-echo -n  "provide the username: "
-read newusers
-useradd $newusers
-echo " "
-echo "user $newusers has benn created"
-echo "$newusers        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/mysudoers
-echo " "
-echo "Here are your sudo users"
-cat /etc/sudoers.d/mysudoers
+echo -n  "provide the username: " # request  user input
+read newusers                     # store the input in a variable
+useradd $newusers                 # create the user from the input
+echo " "                          # create an empty line
+echo "user $newusers has been created" # print that the user the user has been created
+echo "$newusers        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/mysudoers  # add the user to the sudoers file
+echo " "                           # create an empty line
+echo "Here are your sudo users"    
+cat /etc/sudoers.d/mysudoers       # list the sudo users
