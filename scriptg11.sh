@@ -14,3 +14,5 @@ cat $filename
 echo " showing the content of the file in g11backup"
 cat ../g11backup/$filename
 
+# I have a backup of this file in the g11backup directory
+
