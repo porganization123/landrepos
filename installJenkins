@@ -6,4 +6,4 @@ sudo dnf upgrade
 sudo dnf install java-11 -y
 sudo dnf install jenkins -y
 sudo systemctl daemon-reload
-systemctl enable jenkins && systemctl start jenkins
+sudo systemctl enable jenkins && systemctl start jenkins
