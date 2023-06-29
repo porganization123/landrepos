@@ -13,4 +13,4 @@ echo 'export M2_HOME=/opt/maven' >> .bash_profile
 echo 'export PATH=$PATH:$M2_HOME/bin' >> .bash_profile
 source ~/.bash_profile
 mvn -version
-echo "Now run the command: source .bash_profile"
+echo "NOW RUN THIS COMMAND: source .bash_profile"
