@@ -6,10 +6,8 @@ sudo hostnamectl set-hostname sonar
 echo -e "sudo su - sonar << EOF \nsh /opt/sonarqube/bin/linux-x86-64/sonar.sh start \nEOF" >> .bash_profile
 sudo su - sonar << EOF
 #sudo passwd sonar
-
 sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication yes" /etc/ssh/sshd_config
 sudo service sshd restart
-
 cd /opt
 sudo yum -y install unzip wget git
 sudo yum install  java-11 -y
