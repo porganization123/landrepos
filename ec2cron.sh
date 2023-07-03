@@ -6,3 +6,4 @@ echo "0 */4 * * * shutdown --poweroff +5 'The system is going down in five minut
 crontab -T cronjob001
 crontab < cronjob001
 crontab -l
+sudo systemctl status crond.service
