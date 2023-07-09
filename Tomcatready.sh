@@ -23,5 +23,5 @@ sudo ln -s /opt/tomcat9/bin/shutdown.sh /usr/bin/stoptomcat
 starttomcat
 sudo sed -i '/^  <Valve*/i <!--' /opt/tomcat9/webapps/manager/META-INF/context.xml
 sudo sed -i '/^         allow*/a -->' /opt/tomcat9/webapps/manager/META-INF/context.xml
-sudo sed  '/^<\/tomcat-users>/i <user username="admin" password="admin" roles="manager-gui,manager-script"\/>' /opt/tomcat9/conf/tomcat-users.xml
+sudo sed -i '/^<\/tomcat-users>/i <user username="admin" password="admin" roles="manager-gui,manager-script"\/>' /opt/tomcat9/conf/tomcat-users.xml
 sudo su ec2-user
