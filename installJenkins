@@ -5,6 +5,7 @@ sudo dnf upgrade
 # Add required dependencies for the jenkins package
 sudo dnf install java-11 -y
 sudo dnf install jenkins -y
+sudo dnf install git -y
 sudo systemctl daemon-reload
 sudo systemctl enable jenkins
 echo "Starting Jenkins service ... wait till you get the prompt"
