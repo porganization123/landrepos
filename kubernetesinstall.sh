@@ -100,6 +100,7 @@ systemctl start kubelet
 systemctl enable kubelet.service
 # Initialize Kubernetes control plane by running the below commond as root user.
 kubeadm init
+sudo su - ubuntu
 EOF
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
