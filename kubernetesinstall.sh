@@ -100,7 +100,7 @@ systemctl enable kubelet.service
 kubeadm init
 mkdir -p /home/ubuntu/.kube
 sudo cp -i /etc/kubernetes/admin.conf /home/ubuntu/.kube/config
-sudo chown ubuntu:ubuntu $HOME/.kube/config
+sudo chown ubuntu:ubuntu /home/ubuntu/.kube/config
 #deploy the network plugin - weave network and verify
 sudo su - ubuntu <<EOF
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
