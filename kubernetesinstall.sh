@@ -96,7 +96,7 @@ apt-mark hold kubelet kubeadm kubectl
 systemctl daemon-reload
 systemctl start kubelet
 systemctl enable kubelet.service
-find / -name config.yaml > /tmp/file01 2>&1
+sudo find / -name config.yaml > /tmp/file01 2>&1
 # Initialize Kubernetes control plane by running the below commond as root user.
 kubeadm init
 mkdir -p /home/ubuntu/.kube
@@ -107,5 +107,5 @@ sudo su - ubuntu <<EOF
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
 kubectl get pods -A
 kubectl get node
-find / -name config.yaml > /tmp/file02 2>&1
+sudo find / -name config.yaml > /tmp/file02 2>&1
 EOF
