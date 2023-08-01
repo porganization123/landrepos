@@ -99,10 +99,11 @@ systemctl enable kubelet.service
 # Initialize Kubernetes control plane by running the below commond as root user.
 kubeadm init
 su - ubuntu <<EOF
+HOME=/home/ubuntu
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+sudo chown ubuntu:ubuntu $HOME/.kube/config
 #deploy the network plugin - weave network and verify
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
 kubectl get pods -A
