@@ -4,7 +4,7 @@
 #i1) Switch to root user [ sudo -i]
 
 sudo hostnamectl set-hostname master
-sudo -i
+sudo su - root <<EOF
 
 #2) Disable swap & add kernel settings
 
@@ -99,8 +99,9 @@ systemctl daemon-reload
 systemctl start kubelet
 systemctl enable kubelet.service
 # Initialize Kubernetes control plane by running the below commond as root user.
-sudo kubeadm init
-sudo su - ubuntu
+kubeadm init
+EOF
+sudo su - ubuntu <<EOF
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -108,3 +109,4 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
 kubectl get pods -A
 kubectl get node
+EOF
