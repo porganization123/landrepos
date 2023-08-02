@@ -1,7 +1,8 @@
 #!/bin/bash
-# copy this script is for worker nodes Only
-#You can either run as root or use sudo to run this script  <--
-#Make sure the Security group accepts All Traffic  <--
+# READ ME (IMPORTANT)
+# Copy this script is for worker nodes Only
+# You can either run as root or use sudo to run this script  <--
+# Make sure the Security group accepts All Traffic  <--
 
 sudo hostnamectl set-hostname  node$1
 
@@ -97,3 +98,8 @@ apt-mark hold kubelet kubeadm kubectl
 systemctl daemon-reload
 systemctl start kubelet
 systemctl enable kubelet.service
+
+# READ ME (IMPORTANT)
+# Copy this script is for worker nodes Only
+# You can either run as root or use sudo to run this script  <--
+# Make sure the Security group accepts All Traffic  <--
