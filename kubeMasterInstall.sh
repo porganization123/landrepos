@@ -1,4 +1,5 @@
 #!/bin/bash
+# READ ME ( IMPORTANT)
 # This script is for the Master node Only  <--
 # Make sure that Security Group accepts all traffic <--
 #You can either switch to root or run the  script with sudo
@@ -109,3 +110,10 @@ kubectl get pods -A
 kubectl get node
 sudo find / -name config.yaml > /tmp/file02 2>&1
 EOF
+
+# READ ME ( IMPORTANT)
+# This script is for the Master node Only  <--
+# Make sure that Security Group accepts all traffic <--
+#You can either switch to root or run the  script with sudo
+
+
