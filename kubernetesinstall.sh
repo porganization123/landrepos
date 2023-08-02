@@ -1,7 +1,7 @@
 #!/bin/bash
-# common.sh
-# copy this script and run in all master and worker nodes
-#i1) Switch to root user [ sudo -i]
+# This script is for the Master node Only  <--
+# Make sure that Security Group accepts all traffic <--
+#You can either switch to root or run the  script with sudo
 
 sudo hostnamectl set-hostname master
 
