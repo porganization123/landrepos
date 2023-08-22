@@ -1,10 +1,11 @@
+#update the system
+sudo apt update -y
 # add the user kops
 sudo adduser kops
 sudo echo "kops  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/kops
 sudo su - kops << EOF
-sudo apt update -y
 # install awscli
- sudo apt install awscli -y 
+sudo apt install awscli -y 
 # install kops software
 sudo apt install wget -y
 sudo wget https://github.com/kubernetes/kops/releases/download/v1.22.0/kops-linux-amd64
@@ -23,12 +24,12 @@ sleep 2m
 #AmazonVPCFullAccess
 aws s3 mb s3://class32kopspat # need to be deleted at the end
 aws s3 ls # to verify
+# initialize variable
 NAME=class32.k8s.local
 KOPS_STATE_STORE=s3://class32kopspat
 # Give Unique Name And S3 Bucket which you created.
 echo 'export NAME=class32.k8s.local' >> .bashrc
 echo 'export KOPS_STATE_STORE=s3://class32kopspat' >> .bashrc
-source .bashrc
 echo 'providing variables....'
 echo $NAME
 echo $KOPS_STATE_STORE
