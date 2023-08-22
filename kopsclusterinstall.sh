@@ -24,9 +24,10 @@ sleep 2m
 aws s3 mb s3://class32kopspat # need to be deleted at the end
 aws s3 ls # to verify
 # Give Unique Name And S3 Bucket which you created.
-echo 'export NAME=class30.k8s.local' >> .bashrc
-echo 'export KOPS_STATE_STORE=s3://class30kops' >> .bashrc
+echo 'export NAME=class32.k8s.local' >> .bashrc
+echo 'export KOPS_STATE_STORE=s3://class32kopspat' >> .bashrc
 source .bashrc
+echo 'providing variables....'
 echo $NAME
 echo $KOPS_STATE_STORE
 sleep 2m
