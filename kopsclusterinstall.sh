@@ -14,6 +14,8 @@ sudo mv kops-linux-amd64 /usr/local/bin/kops
 sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
+echo 'ASSIGN Role kopsrole to the EC2'
+sleep 2m
 #create a role that you'll assign to the ec2 with the following permissions
 #AmazonEC2FullAccess 
 #AmazonS3FullAccess
