@@ -1,5 +1,6 @@
 #update the system
 sudo apt update -y
+sleep 1m
 # add the user kops
 sudo adduser kops
 sudo echo "kops  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/kops
@@ -25,19 +26,14 @@ sleep 2m
 aws s3 mb s3://class32kopspat # need to be deleted at the end
 aws s3 ls # to verify
 # initialize variable
-NAME=class32.k8s.local
-KOPS_STATE_STORE=s3://class32kopspat
 # Give Unique Name And S3 Bucket which you created.
 echo 'export NAME=class32.k8s.local' >> .bashrc
 echo 'export KOPS_STATE_STORE=s3://class32kopspat' >> .bashrc
-echo 'providing variables....'
-echo $NAME
-echo $KOPS_STATE_STORE
-sleep 2m
-kops create cluster --zones us-east-1a --networking weave --master-size t2.medium --master-count 1 --node-size t2.micro --node-count=2 --name ${NAME}
-kops update cluster ${NAME} --yes
+echo 'initializing the kops cluster'
+kops create cluster --zones us-east-1a --networking weave --master-size t2.medium --master-count 1 --node-size t2.micro --node-count=2 --name class32.k8s.local
+kops update cluster class32.k8s.local --yes
 sleep 6m
-kops export kubecfg $NAME --admin
+kops export kubecfg class32.k8s.local --admin
 kops validate cluster
 kubectl get nodes 
 EOF
