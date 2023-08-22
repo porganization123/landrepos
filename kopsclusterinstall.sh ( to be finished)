@@ -1,0 +1,5 @@
+ sudo adduser kops
+ sudo echo "kops  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/kops
+ sudo su - kops << EOF
+ sudo apt update -y
+ sudo apt install awscli -y 
