@@ -23,6 +23,8 @@ sleep 2m
 #AmazonVPCFullAccess
 aws s3 mb s3://class32kopspat # need to be deleted at the end
 aws s3 ls # to verify
+NAME=class32.k8s.local
+KOPS_STATE_STORE=s3://class32kopspat
 # Give Unique Name And S3 Bucket which you created.
 echo 'export NAME=class32.k8s.local' >> .bashrc
 echo 'export KOPS_STATE_STORE=s3://class32kopspat' >> .bashrc
