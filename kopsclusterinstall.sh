@@ -1,6 +1,5 @@
 #update the system
 sudo apt update -y
-sleep 1m
 # add the user kops
 sudo adduser kops
 sudo echo "kops  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/kops
@@ -17,7 +16,7 @@ sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 echo 'ASSIGN Role kopsrole to the EC2'
-sleep 2m
+sleep 1m
 #create a role that you'll assign to the ec2 with the following permissions
 #AmazonEC2FullAccess 
 #AmazonS3FullAccess
