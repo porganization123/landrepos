@@ -1,5 +1,5 @@
 #update the system
-sudo apt upgrade -y
+sudo apt update -y
 sleep 1m
 # add the user kops
 sudo adduser kops
