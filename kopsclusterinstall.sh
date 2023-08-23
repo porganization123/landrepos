@@ -1,7 +1,7 @@
 #update the system
 sudo apt update -y
 # add the user kops
-sudo adduser kops
+sudo useradd kops
 sudo echo "kops  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/kops
 sudo su - kops << EOF
 # install awscli
@@ -15,7 +15,7 @@ sudo mv kops-linux-amd64 /usr/local/bin/kops
 sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
-echo 'ASSIGN Role kopsrole to the EC2'
+echo 'ASSIGN Role kopsrole to the EC2 in case you forgot. You have about 2 mins'
 sleep 1m
 #create a role that you'll assign to the ec2 with the following permissions
 #AmazonEC2FullAccess 
@@ -29,13 +29,15 @@ aws s3 ls
 echo 'export NAME=class32.k8s.local' >> .bashrc
 echo 'export KOPS_STATE_STORE=s3://class32kopspat' >> .bashrc
 echo 'initializing the kops cluster'
+export NAME=class32.k8s.local
+export KOPS_STATE_STORE=s3://class32kopspat
 kops create cluster --zones us-east-1a --networking weave --master-size t2.medium --master-count 1 \
 --node-size t2.micro --node-count=2 \
---name class32.k8s.local --state s3://class32kopspat
+--name $NAME --state s3://class32kopspat
 echo 'UPDATE Cluster
-kops update cluster class32.k8s.local --yes
+kops update cluster $NAME --yes
 sleep 6m
-kops export kubecfg class32.k8s.local --admin
+kops export kubecfg $NAME --admin
 kops validate cluster
 kubectl get nodes 
 EOF
