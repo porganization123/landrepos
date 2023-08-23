@@ -5,7 +5,9 @@ sudo useradd kops
 sudo echo "kops  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/kops
 sudo su - kops << EOF
 # install awscli
-sudo apt install awscli -y 
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 # install kops software
 sudo apt install wget -y
 sudo wget https://github.com/kubernetes/kops/releases/download/v1.22.0/kops-linux-amd64
