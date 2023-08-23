@@ -19,7 +19,7 @@ sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 echo 'ASSIGN Role kopsrole to the EC2 in case you forgot. You have about 2 mins'
-sleep 1m
+sleep 2m
 #create a role that you'll assign to the ec2 with the following permissions
 #AmazonEC2FullAccess 
 #AmazonS3FullAccess
@@ -42,7 +42,7 @@ kops create cluster --zones us-east-1a --networking weave --master-size t2.mediu
 --name class32.k8s.local --state s3://class32kopspat
 echo 'UPDATE Cluster'
 kops update cluster class32.k8s.local --yes
-sleep 4m
+sleep 6m
 kops export kubecfg class32.k8s.local --admin
 kops validate cluster
 kubectl get nodes 
