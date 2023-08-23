@@ -36,9 +36,9 @@ export KOPS_STATE_STORE=s3://class32kopspat
 kops create cluster --zones us-east-1a --networking weave --master-size t2.medium --master-count 1 \
 --node-size t2.micro --node-count=2 \
 --name $NAME --state s3://class32kopspat
-echo 'UPDATE Cluster
+echo 'UPDATE Cluster'
 kops update cluster $NAME --yes
-sleep 6m
+sleep 4m
 kops export kubecfg $NAME --admin
 kops validate cluster
 kubectl get nodes 
