@@ -32,18 +32,18 @@ aws s3 ls
 echo 'export NAME=class32.k8s.local' >> .bashrc
 echo 'export KOPS_STATE_STORE=s3://class32kopspat' >> .bashrc
 echo 'initializing the kops cluster'
-export NAME="class32.k8s.local"
-export KOPS_STATE_STORE="s3://class32kopspat"
+#export NAME="class32.k8s.local"
+export KOPS_STATE_STORE=s3://class32kopspat
 echo 'showing the content of the variables'
-echo $NAME
+#echo $NAME
 echo $KOPS_STATE_STORE
 kops create cluster --zones us-east-1a --networking weave --master-size t2.medium --master-count 1 \
 --node-size t2.micro --node-count=2 \
---name $NAME --state s3://class32kopspat
+--name class32.k8s.local --state s3://class32kopspat
 echo 'UPDATE Cluster'
-kops update cluster $NAME --yes
+kops update cluster class32.k8s.local --yes
 sleep 4m
-kops export kubecfg $NAME --admin
+kops export kubecfg class32.k8s.local --admin
 kops validate cluster
 kubectl get nodes 
 EOF
