@@ -1,11 +1,12 @@
 #update the system
 sudo apt update -y
 # add the user kops
-sudo useradd kops
+sudo adduser --disabled-password kops
 sudo echo "kops  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/kops
 sudo su - kops << EOF
 # install awscli
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
 unzip awscliv2.zip
 sudo ./aws/install
 # install kops software
