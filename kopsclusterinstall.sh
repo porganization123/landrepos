@@ -46,4 +46,5 @@ sleep 6m
 kops export kubecfg class32.k8s.local --admin
 kops validate cluster
 kubectl get nodes 
+### DELETE THE CLUSTER BY USING : kops delete cluster --name=${NAME} --state=${KOPS_STATE_STORE} --yes
 EOF
