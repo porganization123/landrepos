@@ -48,3 +48,4 @@ kops validate cluster
 kubectl get nodes 
 ### DELETE THE CLUSTER BY USING : kops delete cluster --name=${NAME} --state=${KOPS_STATE_STORE} --yes
 EOF
+### MAKE SURE TO ASSIGN THE KOPS ROLE TO THE EC2 BEFORE YOU START THIS SCRIPT####
