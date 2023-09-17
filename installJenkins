@@ -10,3 +10,5 @@ sudo systemctl daemon-reload
 sudo systemctl enable jenkins
 echo "Starting Jenkins service ... wait till you get the prompt"
 sudo systemctl start jenkins
+echo "JENKINS IS READY"
+sudo systemctl status jenkins
