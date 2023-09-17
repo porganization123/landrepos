@@ -8,7 +8,9 @@ sudo dnf install jenkins -y
 sudo dnf install git -y
 sudo systemctl daemon-reload
 sudo systemctl enable jenkins
-echo "=========INSTALLING ... WAIT =========="
+echo "=========STARTING JENKINS ... WAIT ==============="
 sudo systemctl start jenkins
+echo " "
+echo " "
 echo "==========JENKINS IS READY==============="
 sudo systemctl status jenkins
