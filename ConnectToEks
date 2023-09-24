@@ -1,0 +1,24 @@
+To join an IAM user to the system:masters group in EKS, you can follow these steps:
+
+Get the ARN of the IAM user. You can use the AWS CLI or the AWS Management Console to get the ARN of the IAM user.
+
+Edit the aws-auth ConfigMap. The aws-auth ConfigMap contains the mappings between IAM users and roles in EKS. To edit the aws-auth ConfigMap, you can use the following command:
+
+kubectl edit configmap aws-auth -n kube-system
+Add the IAM user to the system:masters group. In the aws-auth ConfigMap, add the IAM user's ARN to the mapRoles section. The mapRoles section maps IAM users and roles to Kubernetes roles.
+For example, to add the IAM user jane to the system:masters group, you would add the following line to the mapRoles section:
+
+mapRoles:
+- groups:
+  - system:masters
+  rolearn: arn:aws:iam::123456789012:user/jane
+Save the changes to the aws-auth ConfigMap.
+
+Restart the kube-apiserver process. You can restart the kube-apiserver process using the following command:
+
+kubectl rollout restart deployment/kube-apiserver -n kube-system
+Once you have completed these steps, the IAM user will be a member of the system:masters group in EKS.
+
+Important: It is important to note that the system:masters group is a very powerful group, and should only be used by trusted users. Users who are members of this group have full access to the Kubernetes API, and can perform any action on any resource.
+
+Recommendation: It is generally considered best practice to avoid using the system:masters group entirely. Instead, you should create specific roles and role bindings for each user or group, giving them only the permissions that they need.
