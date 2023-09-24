@@ -22,3 +22,98 @@ Once you have completed these steps, the IAM user will be a member of the system
 Important: It is important to note that the system:masters group is a very powerful group, and should only be used by trusted users. Users who are members of this group have full access to the Kubernetes API, and can perform any action on any resource.
 
 Recommendation: It is generally considered best practice to avoid using the system:masters group entirely. Instead, you should create specific roles and role bindings for each user or group, giving them only the permissions that they need.
+
+#####  about RBAC ########
+To create specific roles and role bindings for each user or group, giving them only the permissions that they need in Kubernetes RBAC, you can follow these steps:
+
+Create a role for each set of permissions that you want to grant to your users or groups. You can use the kubectl create role command to do this. For example, to create a role that allows users to create and manage pods, you would use the following command:
+kubectl create role pod-manager --verb=create,get,list,update,patch,delete --resource=pods
+Create a role binding for each role that you created in the previous step. You can use the kubectl create rolebinding command to do this. For example, to create a role binding that binds the pod-manager role to the my-users group, you would use the following command:
+kubectl create rolebinding pod-manager-binding --role=pod-manager --group=my-users
+Assign the role binding to the users or groups that you want to grant the permissions to. You can use the kubectl apply command to do this. For example, to assign the pod-manager-binding role binding to the my-users group, you would use the following command:
+kubectl apply -f pod-manager-binding.yaml
+Once you have completed these steps, the users or groups that you assigned the role binding to will have the permissions that are granted by the role.
+
+Here is an example of a complete role and role binding:
+
+YAML
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pod-manager
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["create", "get", "list", "update", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-manager-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: pod-manager
+subjects:
+- kind: Group
+  name: my-users
+Use code with caution. Learn more
+To apply this role and role binding, you would use the following command:
+
+kubectl apply -f pod-manager-binding.yaml
+Once you have applied the role and role binding, the my-users group will have the permissions to create and manage pods.
+
+It is important to note that you should only grant users or groups the permissions that they need. Granting too many permissions can be a security risk.
+
+profile picture
+How to assign user jane to my-users group
+
+To assign user jane to the my-users group, you can use the following steps:
+
+Create a Group object for the my-users group. You can use the kubectl create group command to do this. For example, to create a Group object for the my-users group, you would use the following command:
+kubectl create group my-users
+Add the user jane to the my-users group. You can use the kubectl add group members command to do this. For example, to add the user jane to the my-users group, you would use the following command:
+kubectl add group members my-users jane
+Once you have completed these steps, the user jane will be a member of the my-users group.
+
+Here is an example of a complete Group object for the my-users group:
+
+YAML
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Group
+metadata:
+  name: my-users
+users:
+- jane
+Use code with caution. Learn more
+To apply this Group object, you would use the following command:
+
+kubectl apply -f my-users.yaml
+Once you have applied the Group object, the user jane will be a member of the my-users group.
+
+You can then assign roles and role bindings to the my-users group to grant the user jane the permissions that she needs.
+
+profile picture
+how user jane can connect to the cluster
+
+There are two ways that user jane can connect to the cluster:
+
+Using the Kubernetes CLI (kubectl)
+To connect to the cluster using kubectl, jane will need to have the kubectl binary installed and configured. Once kubectl is installed and configured, jane can connect to the cluster using the following command:
+
+kubectl config use-context cluster-name
+Where cluster-name is the name of the cluster that jane wants to connect to.
+
+Using a Kubernetes dashboard
+There are many different Kubernetes dashboards available, both commercial and open source. To connect to the cluster using a Kubernetes dashboard, jane will need to have access to the dashboard and be authenticated to the dashboard.
+
+Once jane is connected to the cluster, she can use kubectl or the Kubernetes dashboard to manage the cluster and its resources.
+
+Here are some additional things that jane will need to do in order to connect to the cluster:
+
+Have a valid Kubernetes configuration file. This file contains the information that kubectl needs to connect to the cluster.
+Have the appropriate permissions to connect to the cluster. These permissions can be granted by a cluster administrator.
+Once jane has a valid Kubernetes configuration file and the appropriate permissions, she can connect to the cluster and start using it.
+
+Note: It is important to note that the Kubernetes API is a powerful tool, and should only be used by trusted users. Users who have access to the Kubernetes API can perform any action on any resource in the cluster.
+
