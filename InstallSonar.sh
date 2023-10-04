@@ -9,7 +9,7 @@ sudo su - sonar << EOF
 sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication yes" /etc/ssh/sshd_config
 sudo service sshd restart
 cd /opt
-sudo yum -y install unzip wget git
+sudo yum -y install unzip wget git cronie
 sudo yum install  java-11 -y
 sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.8.zip
 sudo unzip sonarqube-7.8.zip
@@ -19,5 +19,8 @@ sudo chown -R sonar:sonar /opt/sonarqube/
 sudo chmod -R 775 /opt/sonarqube/
 sh /opt/sonarqube/bin/linux-x86-64/sonar.sh start 
 sh /opt/sonarqube/bin/linux-x86-64/sonar.sh status
-#echo "@reboot  /opt/sonarqube/bin/linux-x86-64/sonar.sh start" > crontab
+sudo systemctl start crond.service
+sudo systemctl enable crond.service
+echo "@reboot  /opt/sonarqube/bin/linux-x86-64/sonar.sh start" > cronsonar
+crontab < cronsonar
 EOF
