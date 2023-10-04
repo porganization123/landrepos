@@ -21,6 +21,6 @@ sh /opt/sonarqube/bin/linux-x86-64/sonar.sh start
 sh /opt/sonarqube/bin/linux-x86-64/sonar.sh status
 sudo systemctl start crond.service
 sudo systemctl enable crond.service
-echo "@reboot  /opt/sonarqube/bin/linux-x86-64/sonar.sh start" > /opt/cronsonar
-crontab < /opt/cronsonar
+echo "@reboot  /opt/sonarqube/bin/linux-x86-64/sonar.sh start" > /opt/sonarqube/cronsonar
+crontab < /opt/sonarqube/cronsonar
 EOF
