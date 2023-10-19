@@ -4,8 +4,7 @@ sudo hostnamectl set-hostname maven
 sudo yum install wget tree unzip git java-11 -y
 curl https://maven.apache.org/download.cgi > latestmaven
 cd /opt
-grep -o 'https://dlcdn[^"]*/3.9[^"]*bin\.zip' /home/ec2-user/latestmaven
-#sudo wget $(grep -o 'https://dlcdn[^"]*/3.9[^"]*bin\.zip' /home/ec2-user/latestmaven)
+sudo wget $(grep -o 'https://dlcdn[^"]*/3.9[^"]*bin\.zip' /home/ec2-user/latestmaven)
 sudo unzip apache*.zip
 sudo rm -rf apache*.zip
 sudo mv apache*/ maven
