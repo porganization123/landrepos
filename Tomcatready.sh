@@ -1,4 +1,4 @@
-#Create Redhat EC2 T2.micro Instance.
+#Create Amazon Linux EC2 T2.micro Instance.
 # open port 8080 ..etc
 # change hostname to tomcat
 sudo hostnamectl set-hostname tomcat
