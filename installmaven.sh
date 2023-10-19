@@ -1,13 +1,15 @@
 # install Java JDK 11+ as a pre-requisit for maven to run.
 sudo hostnamectl set-hostname maven
 #sudo su - ec2-user
-cd /opt
 sudo yum install wget nano tree unzip git -y
 sudo yum install java-11 -y
-sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.zip
-sudo unzip apache-maven-3.9.3-bin.zip
-sudo rm -rf apache-maven-3.9.3-bin.zip
-sudo mv apache-maven-3.9.3/ maven
+curl https://maven.apache.org/download.cgi > latestmaven
+cd /opt
+grep -o 'https://dlcdn[^"]*/3.9[^"]*bin\.zip' /home/ec2-user/latestmaven
+#sudo wget $(grep -o 'https://dlcdn[^"]*/3.9[^"]*bin\.zip' /home/ec2-user/latestmaven)
+sudo unzip apache*.zip
+sudo rm -rf apache*.zip
+sudo mv apache*/ maven
 cd
 echo 'export M2_HOME=/opt/maven' >> .bash_profile
 echo 'export PATH=$PATH:$M2_HOME/bin' >> .bash_profile
