@@ -3,9 +3,7 @@
 # change hostname to tomcat
 sudo hostnamectl set-hostname tomcat
 #sudo su - ec2-user
-sudo yum install git wget -y
-sudo yum install java-11 -y
-sudo yum install wget unzip -y
+sudo yum install git wget java-11 unzip cronie -y
 sudo curl https://tomcat.apache.org/download-90.cgi > latesttom
 cd /opt
 ### Downloading latest tomcat ######
