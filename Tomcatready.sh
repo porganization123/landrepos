@@ -27,4 +27,8 @@ starttomcat
 sudo sed -i '/^  <Valve*/i <!--' /opt/tomcat9/webapps/manager/META-INF/context.xml
 sudo sed -i '/^         allow*/a -->' /opt/tomcat9/webapps/manager/META-INF/context.xml
 sudo sed -i '/^<\/tomcat-users>/i <user username="admin" password="admin" roles="manager-gui,manager-script"\/>' /opt/tomcat9/conf/tomcat-users.xml
+sudo systemctl start crond.service
+sudo systemctl enable crond.service
+echo "@reboot  starttomcat" > /opt/tomcat9/crontom
+crontab < /opt/tomcat9/crontom
 sudo su ec2-user
