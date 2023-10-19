@@ -10,7 +10,7 @@ sudo curl https://tomcat.apache.org/download-90.cgi > latesttom
 cd /opt
 sudo wget $(grep -o 'https://dlcdn[^"]*\.[0-9][0-9]\.zip' /home/ec2-user/latesttom)
 sudo unzip apache*.zip
-sudo rm -rf apache*zip
+sudo rm -rf apache*.zip
 sudo rm -f /home/ec2-user/latesttom
 ### rename tomcat for good naming convention
 sudo mv apache*[0-9] tomcat9  
