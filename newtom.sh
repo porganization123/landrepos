@@ -30,10 +30,10 @@ fi
 
 done
 if [ -z "$tomvers" ] || [ "$tomvers" = "default_vers" ]; then
-   wget https://dlcdn.apache.org/tomcat/tomcat-9/v$default_vers/bin/apache-tomcat-$default_vers.zip
+   link=wget https://dlcdn.apache.org/tomcat/tomcat-9/v$default_vers/bin/apache-tomcat-$default_vers.zip
 
 else
-   wget https://archive.apache.org/dist/tomcat/tomcat-9/v$tomvers/bin/apache-tomcat-$tomvers.zip
+   link=wget https://archive.apache.org/dist/tomcat/tomcat-9/v$tomvers/bin/apache-tomcat-$tomvers.zip
 
 fi
 
@@ -43,8 +43,8 @@ read username
 echo -n "provide your password please: "
 read password
 
-echo -n "desired role [separate each role by a coma]: "
-read role
+echo -n "desired role [ manager-gui manager-script separate each role by a coma]: "
+read roles
 
 #####
 #Create Amazon Linux EC2 T2.micro Instance.
@@ -53,13 +53,11 @@ read role
 sudo hostnamectl set-hostname tomcat
 #sudo su - ec2-user
 sudo yum install git wget java-11 unzip cronie -y
-sudo curl https://tomcat.apache.org/download-90.cgi > latesttom
 cd /opt
 ### Downloading latest tomcat ######
-sudo wget $(grep -o 'https://dlcdn[^"]*\.[0-9][0-9]\.zip' /home/ec2-user/latesttom)
+sudo wget $link
 sudo unzip apache*.zip
 sudo rm -rf apache*.zip
-sudo rm -f /home/ec2-user/latesttom
 ### rename tomcat for good naming convention
 sudo mv apache*[0-9] tomcat9  
 ### assign executable permissions to the tomcat home directory
