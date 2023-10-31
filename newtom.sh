@@ -19,10 +19,11 @@ fi
 
 done
 if [ -z "$tomvers" ] || [ "$tomvers" = "default_vers" ]; then
-   link=wget https://dlcdn.apache.org/tomcat/tomcat-9/v$default_vers/bin/apache-tomcat-$default_vers.zip
+   link=https://dlcdn.apache.org/tomcat/tomcat-9/v$default_vers/bin/apache-tomcat-$default_vers.zip
 
 else
-   link=wget https://archive.apache.org/dist/tomcat/tomcat-9/v$tomvers/bin/apache-tomcat-$tomvers.zip 
+   link=https://archive.apache.org/dist/tomcat/tomcat-9/v$tomvers/bin/apache-tomcat-$tomvers.zip 
+fi
 
 echo  -n "what's your desired username: "
 read username
@@ -58,7 +59,7 @@ sudo ln -s /opt/tomcat9/bin/shutdown.sh /usr/bin/stoptomcat
 starttomcat
 sudo sed -i '/^  <Valve*/i <!--' /opt/tomcat9/webapps/manager/META-INF/context.xml
 sudo sed -i '/^         allow*/a -->' /opt/tomcat9/webapps/manager/META-INF/context.xml
-sudo sed -i '/^<\/tomcat-users>/i <user username="$username" password="$password" roles="$roles"\/>' /opt/tomcat9/conf/tomcat-users.xml
+sudo sed -i "/^<\/tomcat-users>/i <user username="$username" password="$password" roles="$roles"\/>" /opt/tomcat9/conf/tomcat-users.xml
 sudo systemctl start crond.service
 sudo systemctl enable crond.service
 echo "@reboot  starttomcat" > /opt/tomcat9/crontom
