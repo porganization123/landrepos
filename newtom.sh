@@ -42,13 +42,14 @@ read roles
 sudo hostnamectl set-hostname tomcat
 #sudo su - ec2-user
 sudo yum install git wget java-11 unzip cronie -y
-[ -d /opt/tomcat9 ] && rm -rf /opt/tomcat9 > /dev/null 2>&1
+stoptomcat > /dev/null 2>&1
+sudo rm -rf /opt/tomcat9 > /dev/null 2>&1
 cd /opt
 ### Downloading latest tomcat ######
-rm -f apache*.zip > /dev/null 2>&1
+sudo rm -f apache*.zip > /dev/null 2>&1
 sudo wget $link
-#sudo unzip apache*.zip
-#sudo rm -rf apache*.zip
+sudo unzip apache*.zip
+sudo rm -rf apache*.zip
 ### rename tomcat for good naming convention
 sudo mv apache*[0-9] tomcat9  
 ### assign executable permissions to the tomcat home directory
@@ -67,4 +68,4 @@ sudo systemctl start crond.service
 sudo systemctl enable crond.service
 echo "@reboot  starttomcat" > /opt/tomcat9/crontom
 crontab < /opt/tomcat9/crontom
-sudo su ec2-user
+cd
