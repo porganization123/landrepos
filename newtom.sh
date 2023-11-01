@@ -47,8 +47,8 @@ cd /opt
 ### Downloading latest tomcat ######
 rm -f apache*.zip > /dev/null 2>&1
 sudo wget $link
-sudo unzip apache*.zip
-sudo rm -rf apache*.zip
+#sudo unzip apache*.zip
+#sudo rm -rf apache*.zip
 ### rename tomcat for good naming convention
 sudo mv apache*[0-9] tomcat9  
 ### assign executable permissions to the tomcat home directory
