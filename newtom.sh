@@ -42,8 +42,10 @@ read roles
 sudo hostnamectl set-hostname tomcat
 #sudo su - ec2-user
 sudo yum install git wget java-11 unzip cronie -y
+[ -d /opt/tomcat9 ] && rm -rf /opt/tomcat9 > /dev/null 2>&1
 cd /opt
 ### Downloading latest tomcat ######
+rm -f apache*.zip > /dev/null 2>&1
 sudo wget $link
 sudo unzip apache*.zip
 sudo rm -rf apache*.zip
