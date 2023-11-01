@@ -12,7 +12,7 @@ if [ ! -z "$tomvers" ] && [ "$tomvers" != "$default_vers" ]; then
    if curl -s --head --fail "$url" > /dev/null 2>&1; then
       found=true
    else
-   echo "wrong"    
+   echo "WRONG Version !!!!"    
    fi
 else
    found=true
