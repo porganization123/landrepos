@@ -1,7 +1,7 @@
 sudo curl -s https://tomcat.apache.org/download-90.cgi > latesttom
 
 #default_vers=$(grep -o 'https://dlcdn[^"]*\.[0-9][0-9]\.zip' /home/ec2-user/latesttom | grep -o '[0-9].[0-9].[0-9][0-9]'| grep -m 1 [0-9].[0-9].[0-9][0-9])
-default_vers=$(grep -o 'https://dlcdn[^"]*\.[0-9]\{1,2\}\.zip' /home/ec2-user/latesttom | grep -o '[0-9].[0-9].[0-9]\{1,2\}'| grep -m 1 [0-9].[0-9].[0-9]\{1,2\})
+default_vers=$(grep -o 'https://dlcdn[^"]*\.[0-9]\{1,2\}\.zip' /home/ec2-user/latesttom | grep -o '[0-9].[0-9].[0-9]\{1,2\}'| grep -m 1 '[0-9].[0-9].[0-9]\{1,2\}')
 found=false
 while [ "$found" = "false" ]; do
 echo -n "what version are you planning to install [$default_vers]: "
