@@ -1,4 +1,5 @@
-#Create Amazon Linux EC2 T2.micro Instance.
+# THIS SCRIPT DOWNLOADS AND INSTALL THE LATEST TOMCAT
+Create Amazon Linux EC2 T2.micro Instance.
 # open port 8080 ..etc
 # change hostname to tomcat
 ##################################################################################################################
