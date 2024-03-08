@@ -3,7 +3,7 @@ Create Amazon Linux EC2 T2.micro Instance.
 # open port 8080 ..etc
 # change hostname to tomcat
 ##################################################################################################################
-# Fastest way to use this code is to type the command below after the amazon ec2 is created:
+# Fastest way to use this code is to run the command below after the amazon ec2 is created:
 # wget https://raw.githubusercontent.com/porganization123/landrepos/master/Tomcatready.sh && sh Tomcatready.sh
 #
 # The default username and password is: admin
