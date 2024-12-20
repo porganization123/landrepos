@@ -1,3 +1,4 @@
+# Size: t2medium for Rhel or t2small for amazonlinux
 sudo useradd sonar
 # Grand sudo access to sonar user
 sudo echo "sonar ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/sonar
