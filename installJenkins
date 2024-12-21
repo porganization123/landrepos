@@ -3,7 +3,8 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo \
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 sudo dnf upgrade
 # Add required dependencies for the jenkins package
-sudo dnf install java-11 -y
+#sudo dnf install java-11 -y
+sudo dnf install java-17 -y
 sudo dnf install jenkins -y
 sudo dnf install git -y
 sudo systemctl daemon-reload
