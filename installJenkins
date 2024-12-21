@@ -1,9 +1,16 @@
+# size: t2 medium on rhel and t2 small on Amazon Linux
+# install jenkins by using this command on:
+# Rhel:
+# sudo yum install wget -y && wget https://raw.githubusercontent.com/porganization123/landrepos/refs/heads/master/installJenkins && sh installJenkins
+# 
+# Amazonlinux:
+# wget https://raw.githubusercontent.com/porganization123/landrepos/refs/heads/master/installJenkins && sh installJenkins
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
     https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 sudo dnf upgrade -y
 # Add required dependencies for the jenkins package
-#sudo dnf install java-11 -y
+#sudo dnf install java-11 -y no longer accepted
 sudo dnf install java-17 -y
 sudo dnf install jenkins -y
 sudo dnf install git -y
