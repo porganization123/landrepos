@@ -1,3 +1,7 @@
+#To run this script, run this command on a t2 medium instance:
+#Amazon Linux: wget https://raw.githubusercontent.com/porganization123/landrepos/refs/heads/master/InstallSonar.sh && sh InstallSonar.sh
+#RHEL: sudo yum install wget && wget https://raw.githubusercontent.com/porganization123/landrepos/refs/heads/master/InstallSonar.sh && sh InstallSonar.sh
+
 wget https://download.docker.com/linux/rhel/9/x86_64/stable/Packages/containerd.io-1.6.33-3.1.el9.x86_64.rpm https://download.docker.com/linux/rhel/9/x86_64/stable/Packages/docker-buildx-plugin-0.19.3-1.el9.x86_64.rpm https://download.docker.com/linux/rhel/9/x86_64/stable/Packages/docker-ce-27.4.1-1.el9.x86_64.rpm https://download.docker.com/linux/rhel/9/x86_64/stable/Packages/docker-ce-cli-27.4.1-1.el9.x86_64.rpm https://download.docker.com/linux/rhel/9/x86_64/stable/Packages/docker-compose-plugin-2.32.1-1.el9.x86_64.rpm
 
 sudo yum install containerd.io-1.6.33-3.1.el9.x86_64.rpm docker-buildx-plugin-0.19.3-1.el9.x86_64.rpm docker-ce-27.4.1-1.el9.x86_64.rpm docker-ce-cli-27.4.1-1.el9.x86_64.rpm docker-compose-plugin-2.32.1-1.el9.x86_64.rpm -y
