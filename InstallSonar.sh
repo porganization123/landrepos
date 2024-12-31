@@ -1,4 +1,6 @@
 # Size: t2medium for Rhel or t2small for amazonlinux
+# Amazonlinux: wget https://raw.githubusercontent.com/porganization123/landrepos/refs/heads/master/InstallSonar.sh && sh InstallSonar.sh
+# Rhel: sudo yum install wget -y &&  wget https://raw.githubusercontent.com/porganization123/landrepos/refs/heads/master/InstallSonar.sh && sh InstallSonar.sh
 sudo useradd sonar
 # Grand sudo access to sonar user
 sudo echo "sonar ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/sonar
