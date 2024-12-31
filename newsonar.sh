@@ -19,6 +19,6 @@ wget https://raw.githubusercontent.com/SonarSource/docker-sonarqube/refs/heads/m
 #Replace community by 9.9.8-community and pg_isready by pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER} in docker-compose.yaml
 # fix the root role issue using this: https://github.com/peter-evans/docker-compose-healthcheck/issues/16
 
-sed -i 's/community/9.9.8-community/g; s/pg_isready/pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}/g' docker-compose.yaml
+sed -i 's/community/9.9.8-community/g; s/pg_isready/pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}/g' docker-compose.yml
 
 docker compose up
