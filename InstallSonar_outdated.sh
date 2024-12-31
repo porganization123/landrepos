@@ -11,14 +11,10 @@ sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication
 sudo service sshd restart
 cd /opt
 sudo yum -y install unzip wget git cronie
-#sudo yum install java-11 -y
 sudo yum install java-17 -y
-#sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.8.zip
 sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.8.100196.zip
-#sudo unzip sonarqube-7.8.zip
 sudo unzip sonarqube-9.9.8.100196.zip
-#sudo rm -rf sonarqube-7.8.zip
-#sudo mv sonarqube-7.8 sonarqube
+sudo rm -rf sonarqube-9.9.8.100196.zip
 sudo mv sonarqube-9.9.8.100196 sonarqube
 sudo chown -R sonar:sonar /opt/sonarqube/
 sudo chmod -R 775 /opt/sonarqube/
