@@ -4,7 +4,7 @@ sudo yum install containerd.io-1.6.33-3.1.el9.x86_64.rpm docker-buildx-plugin-0.
 
 sudo systemctl enable --now docker
 
-sudo usermod -aG docker ec2-user
+#sudo usermod -aG docker ec2-user
 
 sudo sysctl -w vm.max_map_count=524288
 
@@ -20,5 +20,5 @@ wget https://raw.githubusercontent.com/SonarSource/docker-sonarqube/refs/heads/m
 # fix the root role issue using this: https://github.com/peter-evans/docker-compose-healthcheck/issues/16
 
 sed -i 's/community/9.9.8-community/g; s/pg_isready/pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}/g' docker-compose.yml
-#exec newgrp docker
+
 sudo docker compose up
