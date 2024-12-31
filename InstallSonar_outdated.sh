@@ -12,10 +12,13 @@ sudo service sshd restart
 cd /opt
 sudo yum -y install unzip wget git cronie
 sudo yum install  java-11 -y
-sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.8.zip
-sudo unzip sonarqube-7.8.zip
-sudo rm -rf sonarqube-7.8.zip
-sudo mv sonarqube-7.8 sonarqube
+#sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.8.zip
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.8.100196.zip
+#sudo unzip sonarqube-7.8.zip
+sudo unzip sonarqube-9.9.8.100196.zip
+#sudo rm -rf sonarqube-7.8.zip
+#sudo mv sonarqube-7.8 sonarqube
+sudo mv sonarqube-9.9.8.100196 sonarqube
 sudo chown -R sonar:sonar /opt/sonarqube/
 sudo chmod -R 775 /opt/sonarqube/
 sh /opt/sonarqube/bin/linux-x86-64/sonar.sh start 
