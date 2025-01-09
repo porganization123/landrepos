@@ -1,0 +1,8 @@
+#size: t2medium
+sudo yum install -y https://yum.puppet.com/puppet7-release-el-$(rpm -E %{rhel}).noarch.rpm
+sudo yum install -y puppetserver
+export PATH=$PATH:/opt/puppetlabs/bin
+sudo systemctl start puppetserver
+sudo systemctl enable puppetserver
+puppet --version
+sudo systemctl status puppetserver
