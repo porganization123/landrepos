@@ -1,4 +1,4 @@
-#size: t2medium
+# size: t2medium
 # wget https://raw.githubusercontent.com/porganization123/landrepos/refs/heads/master/puppetmaster && sh puppetmaster
 sudo hostnamectl set-hostname puppet
 sudo yum install -y https://yum.puppet.com/puppet7-release-el-$(rpm -E %{rhel}).noarch.rpm
