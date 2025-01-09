@@ -1,3 +1,4 @@
+sudo hostnamectl set-hostname agent
 sudo yum install -y https://yum.puppet.com/puppet7-release-el-$(rpm -E %{rhel}).noarch.rpm
 sudo yum install -y puppet-agent
 export PATH=$PATH:/opt/puppetlabs/bin
@@ -5,3 +6,4 @@ sudo systemctl start puppet
 sudo systemctl enable puppet
 puppet --version
 sudo systemctl status puppet
+echo "NOW RUN THIS COMMAND: echo '<ip_server>   puppet'"
