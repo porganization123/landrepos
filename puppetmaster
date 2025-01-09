@@ -6,3 +6,4 @@ sudo systemctl start puppetserver
 sudo systemctl enable puppetserver
 puppet --version
 sudo systemctl status puppetserver
+echo "NOW RUN THIS COMMAND: echo '<ip_server>   agent'"
