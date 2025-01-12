@@ -13,17 +13,19 @@ sudo sudo su - nexus << EOF
 cd /opt
 # 1.Install prerequisit: JAVA, git, unzip
 sudo yum install git unzip -y
-#sudo yum install java-11 java-1.8.0 -y
-sudo yum install java-17 -y
+sudo yum install java-11 java-1.8.0 -y
 # 2. Download nexus software and extract it (unzip)
-#sudo wget http://download.sonatype.com/nexus/3/nexus-3.15.2-01-unix.tar.gz 
-#sudo tar -zxvf nexus-3.15.2-01-unix.tar.gz
-#sudo mv /opt/nexus-3.15.2-01 /opt/nexus
-#sudo rm -f  nexus-3.15.2-01-unix.tar.gz
-sudo wget https://download.sonatype.com/nexus/3/nexus-3.76.0-03-unix.tar.gz
-sudo tar -zxvf nexus-3.76.0-03-unix.tar.gz
-sudo mv /opt/nexus-3.76.0-03 /opt/nexus
-sudo rm -f  nexus-3.76.0-03-unix.tar.gz
+sudo wget http://download.sonatype.com/nexus/3/nexus-3.15.2-01-unix.tar.gz 
+sudo tar -zxvf nexus-3.15.2-01-unix.tar.gz
+sudo mv /opt/nexus-3.15.2-01 /opt/nexus
+sudo rm -f  nexus-3.15.2-01-unix.tar.gz
+###### For Newer Nexus and Java17 ##########
+#sudo yum install java-17 -y
+#sudo wget https://download.sonatype.com/nexus/3/nexus-3.76.0-03-unix.tar.gz
+#sudo tar -zxvf nexus-3.76.0-03-unix.tar.gz
+#sudo mv /opt/nexus-3.76.0-03 /opt/nexus
+#sudo rm -f  nexus-3.76.0-03-unix.tar.gz
+#############################################
 #5 Change the owner and group permissions to /opt/nexus and /opt/sonatype-work directories.
 sudo chown -R nexus:nexus /opt/nexus
 sudo chown -R nexus:nexus /opt/sonatype-work
